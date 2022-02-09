@@ -1,0 +1,7 @@
+main_Fig2a.out : main_Fig2a.o basic_particle.o 
+	g++ -O3 -std=c++11 -o main_Fig2a.out basic_particle.o main_Fig2a.o -lgsl -lgslcblas -lm
+main_Fig2a.o : main_Fig2a.cpp basic_particle.h
+	g++ -O3 -std=c++11 -o main_Fig2a.o -c main_Fig2a.cpp
+basic_particle.o : basic_particle.h
+	g++ -c -Wall -std=c++11 -o basic_particle.o basic_particle.cpp -lgsl -lgslcblas -lm
+

@@ -18,11 +18,11 @@ gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
 //Define constant
 extern const double pi=3.14159265;
 extern const double Delta=pow(10,-7); //diffusion
-extern const double Lmax=pow(10,0.5); //size of the grid
+extern const double Lmax=pow(1,0.5); //size of the grid
 extern const double area=Lmax*Lmax; //size of the grid
 extern const double k=2*pi;// We do not divide by Lmax, i.e. we do not change the wavenumber even though Lmax changes 
-extern const int size_pop=200000; //initial number of particles
-extern const int tmax=1000; //length of the simulation
+extern const int size_pop=1000; //initial number of particles
+extern const int tmax=100; //length of the simulation
 extern const double proba_death=0.5; //Death and birth probability
 extern const double proba_repro=0.5;
 
@@ -147,15 +147,17 @@ void branching_process(std::vector<basic_particle> &part_1,double proba_repro, d
 	}
 }
  
-int main()
+int main(int argc, char** argv)
 {
 	int i,j,t,tmp_t,nb_div;
 	double a_x,a_y,phi,theta,a_n,xi,dxi,pow_min,pow_max,dpow,pow_i,C;
 	std::vector<basic_particle> Part_table,Part_table_tmp;
 	//std::vector<double> Utot_list{ 0.0, 0.1, 0.5,2.5 }; //The structure of the code enables lauching one simulation for all Utot. For speed purposes, though, it is preferable to launch one simulation per Utot
-	std::vector<double> Utot_list{2.5};
+	double Utot;
+	Utot=std::stod(argv[1]);
 	std::ofstream f0,f1;
 	double pcf_table[2];
+	std::string simu;
 
 	pow_min=-1+log10(Delta);pow_max=5.5+log10(Delta); //These are the limits in Fig. 3 of Young et al. 2001
 	dpow=0.25;
@@ -164,16 +166,26 @@ int main()
 		repart[i]=0;
 	}
 
+	if(Utot==0.1){
+		simu="U0p1";
+	}else if(Utot==0.5){
+		simu="U0p5";
+	}else if(Utot==2.5){
+		simu="U2p5";
+	}else if(Utot==0.0){
+		simu="U0p0";
+	}else{
+		cout<<"U should be 0, 0.1, 0.5 or 2.5";
+	}
+
 	//Open the file in which we will have the x, y, parent of each particle
-//	f0.open("nb_individuals_dpow0p25_area10_tmax1000_N200000_U2p5.txt"); //Original one
-	f0.open("nb_individuals_dpow0p25_area10_tmax1000_N200000_U2p5_tocompare.txt"); //Test one
+	f0.open("nb_individuals_dpow0p25_area1_tmax100_N1000_"+simu+".txt"); //Test one
 	f0<<"Utot;Nb_ind;area"<<std::endl;
-//	f1.open("pcf_dpow0p25_area10_tmax1000_N200000_U2p5.txt"); //Original one
-	f1.open("pcf_dpow0p25_area10_tmax1000_N200000_U2p5_tocompare.txt"); //Test one
+	f1.open("pcf_dpow0p25_area1_tmax100_N1000_"+simu+".txt"); //Test one
 	f1<<"r;Utot;pcf_dx;pcf_dp"<<std::endl;
 
-	for (double Utot : Utot_list) 
-	{
+//	for (double Utot : Utot_list) 
+//	{
 	//Initialize
 	for(i=0; i < size_pop; i++)
 	{
@@ -218,16 +230,9 @@ int main()
 		pow_i=pow_i+dpow;
 	}
 
-	//The part below is just here to output the repartition of distances, which should NOT be done for large populations	
-	//distrib_distance(Part_table,repart);
-	//for(i=0;i<11;i++){
-	//	f0<<Utot<<";"<<i<<";"<<repart[i]<<std::endl;
-	//	repart[i]=0; //after writing the right number in the file, we reset to 0 before a new simulation with a new Utot
-	//}
-	
 	 Part_table= std::vector<basic_particle>(); //Deallocate, reinitialize
 
-	} //End loop on Utot
+//	} //End loop on Utot
 
 	
 	f1.close();
@@ -235,4 +240,7 @@ int main()
 	return 0;
 }
 
-int main();
+//int a_argc;
+//char** a_argv;
+
+//int main();
