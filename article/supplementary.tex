@@ -41,11 +41,11 @@ and $\boldsymbol{x}_{q}$ (permutation symmetry):
 The normalization is: 
 
 \begin{equation}
-\mathcal{P}_{0}(t)+\int\mathcal{P}_{1}(\boldsymbol{X}_{1},t)d\boldsymbol{x}_{1}+\int\int\mathcal{P}_{2}(\boldsymbol{X}_{1},t)d\boldsymbol{x}_{1}d\boldsymbol{x}_{2}+\ldots+\int_{\mathbb{R}^{2k}}\mathcal{P}_{k}(\boldsymbol{X}_{k},t)d\boldsymbol{X}_{k}+\ldots=1
+\mathcal{P}_{0}(t)+\int\mathcal{P}_{1}(\boldsymbol{X}_{1},t)d\boldsymbol{x}_{1}+\int\int\mathcal{P}_{2}(\boldsymbol{X}_{2},t)d\boldsymbol{x}_{1}d\boldsymbol{x}_{2}+\ldots+\int_{\mathbb{R}^{2k}}\mathcal{P}_{k}(\boldsymbol{X}_{k},t)d\boldsymbol{X}_{k}+\ldots=1
 \end{equation}
 
 \vspace{1.25em}
-
+because having $k$ individuals at time $t$ defines a partition of the sample space for $k=0,1,2,...$. 
 We define $b_{k}(\boldsymbol{x},t)=\int\mathcal{P}_{k}(\boldsymbol{x},\boldsymbol{X}_{k-1},t)d\boldsymbol{X}_{k-1}$, i.e. $b_{k}(\boldsymbol{x},t)d\boldsymbol{x}$ is 
 the probability that there are $k$ bugs and bug number 1 is in $d\boldsymbol{x}$.\\
 
@@ -97,15 +97,15 @@ without $\boldsymbol{x}_{p}$. \\
 Here, Eq.~\ref{pk_diffusion} is the diffusion part of the process, 
 Eq.~\ref{pk_same_state} corresponds to the rate at which realizations with $k$ bugs lose a bug by mortality or gain a bug through birth,  Eq.~\ref{pk_death} corresponds to the rate at which realization with $k+1$ bugs lose a bug. Finally, a realization with $k$ bugs can also be produced by a birth in a realization with $k-1$ bugs. \\
 
-Using the time derivative of $\mathcal{P}_{k}(\boldsymbol{X}_{k},t)$ and
-the definition of $c_{k}$, we have:
+Combining the time derivative of $\mathcal{P}_{k}(\boldsymbol{X}_{k},t)$ with
+the definition of $c_{k}$, we obtain:
 
 \begin{subequations} 
 \begin{align}
 \frac{\partial c_{k}}{\partial t}(\boldsymbol{x},\boldsymbol{y},t) & =D\int\nabla_{k}^{2}\mathcal{P}_{k}(\boldsymbol{x},\boldsymbol{y},\boldsymbol{X}_{k-2},t)d\boldsymbol{X}_{k-2}\label{ck_diffusion}\\
  & -k(\lambda+\mu)\int\mathcal{P}_{k}(\boldsymbol{x},\boldsymbol{y},\boldsymbol{X}_{k-2},t)d\boldsymbol{X}_{k-2}\label{ck_same_state}\\
  & +(k+1)\mu\int\mathcal{P}_{k+1}(\boldsymbol{x},\boldsymbol{y},\boldsymbol{X}_{k-2},\boldsymbol{z},t)d\boldsymbol{X}_{k-2}d\boldsymbol{z}\label{ck_death}\\
- & +\frac{\lambda}{k}\int\sum_{p=1}^{k}\sum_{q=1,q\neq p}^{k}\delta({\boldsymbol{x}_p-\boldsymbol{x}_q})\mathcal{P}_{k-1}(\boldsymbol{X}_{k|p,t})\label{ck_birth}
+ & +\frac{\lambda}{k}\int\sum_{p=1}^{k}\sum_{q=1,q\neq p}^{k}\delta({\boldsymbol{x}_p-\boldsymbol{x}_q})\mathcal{P}_{k-1}(\boldsymbol{X}_{k|p,t})d\boldsymbol{X}_{k-2}\label{ck_birth}
 \end{align}
 \end{subequations}
 
@@ -182,22 +182,16 @@ We integrate over the last $k-2$ coordinates.
 \end{flalign}
 \end{subequations}
 
-As $\int\delta(\boldsymbol{x}_p-\boldsymbol{x}_q)F(\boldsymbol{x}_q)d\boldsymbol{x}_q=F(\boldsymbol{x}_p)$, we note here that 
-
-\begin{flalign}
- \int_{x_3}\int_{\ldots}\int_{x_{q}}\int_{\ldots} \int_{x_k}\delta(\boldsymbol{x}_{p}-\boldsymbol{x}_{q})\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_q, \ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}=&\\
- \int_{x_3}\int_{\ldots} \int_{x_{q-1}}\int_{x_{q+1}}\int_{\ldots} \int_{x_k}\mathcal{P}_{k-2}(\boldsymbol{x}_{3},\ldots,\boldsymbol{x}_p,\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}& \label{delta_simplify}
-\end{flalign}
-
+which leads to
 
 \begin{subequations} 
 \begin{flalign}
-\sum_{q=2}^{k}\delta({\boldsymbol{x}_1-\boldsymbol{x}_q})\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t) = & \delta(\boldsymbol{x}_{1}-\boldsymbol{x}_{2})\int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
-&+ \int\mathcal{P}_{k-3}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{x}_{1},\ldots...\boldsymbol{x}_{k},t)d\boldsymbol{x}_{4}\ldots d\boldsymbol{x}_{k} + \ldots \\
-& +\int\mathcal{P}_{k-3}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\ldots...\boldsymbol{x}_{1},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{1}\\
+\int \sum_{q=2}^{k}\delta({\boldsymbol{x}_1-\boldsymbol{x}_q})\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t) d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k} = & \delta(\boldsymbol{x}_{1}-\boldsymbol{x}_{2})\int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
+&+ \int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\boldsymbol{x}_{1},\ldots...\boldsymbol{x}_{k},t)d\boldsymbol{x}_{4}\ldots d\boldsymbol{x}_{k} + \ldots \\
+& +\int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots...\boldsymbol{x}_{1},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{1}\\
 =&\delta(\boldsymbol{x}_{1}-\boldsymbol{x}_{2})\int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
- & +\int\mathcal{P}_{k-3}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{X}_{k-3},t)d\boldsymbol{X}_{k-3}+\ldots\\
- & +\int\mathcal{P}_{k-3}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{X}_{k-3},t)d\boldsymbol{X}_{k-3}\\
+ & +\int\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{X}_{k-3},t)d\boldsymbol{X}_{k-3}+\ldots\\
+ & +\int\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{X}_{k-3},t)d\boldsymbol{X}_{k-3}\\
 = & \delta(\boldsymbol{x}_{1}-\boldsymbol{x}_{2})b_{k-1}(\boldsymbol{x}_{2})+(k-2)c_{k-1}
 \end{flalign}
 \end{subequations}
@@ -211,12 +205,12 @@ Now, we need to use $p\geq3$.
  & \int\sum_{q=1,q\neq p}^{k}\delta({\boldsymbol{x}_p-\boldsymbol{x}_q})\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{p-1},\boldsymbol{x}_{p+1},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
 = & \int\delta(\boldsymbol{x}_{p}-\boldsymbol{x}_{1})\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{p-1},\boldsymbol{x}_{p+1},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
  & +\int\delta(\boldsymbol{x}_{p}-\boldsymbol{x}_{2})\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{p-1},\boldsymbol{x}_{p+1},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}+\\
- & + \int\delta({\boldsymbol{x}_p-\boldsymbol{x}_3})\mathcal{P}_{k|p}(\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{p-1},\boldsymbol{x}_{p+1},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k} + \ldots\\
- &+  \int\delta({\boldsymbol{x}_p-\boldsymbol{x}_k})\mathcal{P}_{k|p}(\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{p-1},\boldsymbol{x}_{p+1},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
-= & \int\delta(\boldsymbol{x}_{p}-\boldsymbol{x}_{1})d\boldsymbol{x}_{p}\int\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{p-1}d\boldsymbol{x}_{p+1}\ldots d\boldsymbol{x}_{k}\\
- & +\int\delta(\boldsymbol{x}_{p}-\boldsymbol{x}_{2})d\boldsymbol{x}_{p}\int\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{p-1}d\boldsymbol{x}_{p+1}\ldots d\boldsymbol{x}_{k}\\
- & + \int\mathcal{P}_{k|p}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{x}_{p},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{4}\ldots d\boldsymbol{x}_{k} + \ldots\\
- &+  \int\mathcal{P}_{k|p}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{p},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k-1}\\
+ & + \int\delta({\boldsymbol{x}_p-\boldsymbol{x}_3})\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{p-1},\boldsymbol{x}_{p+1},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k} + \ldots\\
+ &+  \int\delta({\boldsymbol{x}_p-\boldsymbol{x}_k})\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{p-1},\boldsymbol{x}_{p+1},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
+= & \int\delta(\boldsymbol{x}_{p}-\boldsymbol{x}_{1})d\boldsymbol{x}_{p}\int\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{p-1},\boldsymbol{x}_{p+1},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{p-1}d\boldsymbol{x}_{p+1}\ldots d\boldsymbol{x}_{k}\\
+ & +\int\delta(\boldsymbol{x}_{p}-\boldsymbol{x}_{2})d\boldsymbol{x}_{p}\int\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{p-1},\boldsymbol{x}_{p+1},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{p-1}d\boldsymbol{x}_{p+1}\ldots d\boldsymbol{x}_{k}\\
+ & + \int\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{x}_{p},\ldots,\boldsymbol{x}_{p-1},\boldsymbol{x}_{p+1},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{4}\ldots d\boldsymbol{x}_{k} + \ldots\\
+ &+  \int\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{p-1},\boldsymbol{x}_{p+1},\ldots,\boldsymbol{x}_{p},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k-1}\\
 = & 2\int\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{X}_{k-3},t)d\boldsymbol{X}_{k-3}\\
  & +(k-3)\int\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{X}_{k-3},t)d\boldsymbol{X}_{k-3}\label{eq:birth_term_pgeq3_part2}\\
 = & 2c_{k-1}+(k-3)c_{k-1}\\
@@ -224,7 +218,7 @@ Now, we need to use $p\geq3$.
 \end{flalign}
 \end{subequations}
 
-Thus, $\sum_{p=3}^{k}\sum_{q\neq p}\delta(\boldsymbol{x}_{p}-\boldsymbol{x}_{q})\mathcal{P}_{k-1}d\boldsymbol{X}_{k|p}=(k-2)(k-1)c_{k-1}$.\\
+Thus, $\sum_{p=3}^{k}\sum_{q\neq p} \int \delta(\boldsymbol{x}_{p}-\boldsymbol{x}_{q})\mathcal{P}_{k-1}(\boldsymbol{X}_{k|p})d\boldsymbol{X}_{k-2}=(k-2)(k-1)c_{k-1}$.\\
 
 Finally, the birth term is
 
