@@ -7,7 +7,7 @@ This repository contains the scripts and mathematical analyses replicating the r
 
 > Young, W. R., Roberts, A. J., & Stuhne, G. (2001). _Reproductive pair correlations and the clustering of organisms_. Nature, 412(6844), 328-331.
 
-We reproduce the results of the Brownian Bug Model, which simulates particles in a 2D environment. These particles are subject to both demographic processes (birth and death), and hydrodynamics processes that move them around (diffusion and advection). We provide in this folder two animated images as examples of the dynamics of the particles, with either [low](./gif_lowDelta.gif ) (![\Delta](https://latex.codecogs.com/svg.latex?\Delta)=10<sup>-7</sup>) or [high](./gif_highDelta.gif) (![\Delta](https://latex.codecogs.com/svg.latex?\Delta)=10<sup>-3</sup>) diffusivity. 
+We simulate the Brownian Bug Model in a two-dimensional, dynamic fluid. These particles are subject to both demographic processes (birth and death), and hydrodynamic processes that move them around (diffusion and advection). We provide in this folder two animated images as examples of the dynamics of the particles, with either [low](./gif_lowDelta.gif ) (![\Delta](https://latex.codecogs.com/svg.latex?\Delta)=10<sup>-7</sup>) or [high](./gif_highDelta.gif) (![\Delta](https://latex.codecogs.com/svg.latex?\Delta)=10<sup>-3</sup>) diffusivity. 
 
 ### Organisation
 
@@ -16,7 +16,7 @@ Folders are organized as follow:
 * `article` contains all files used to produce the manuscript of the article.
 * `code/simulation` contains the code for the simulations of the Brownian bug model. Output files are also stored in this folder.
 * `code/figure` contains the codes to produce figures shown in the article, as well as said figures.
-* `code/tests` provides the codes to run smaller (and therefore faster) simulations to enable the user to familiarize with the structure of the code.
+* `code/tests` provides the codes to run smaller (and therefore faster) simulations to enable the user to familiarize oneself with the structure of the code.
 
 ### Pre-requisites
 
