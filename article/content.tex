@@ -3,7 +3,7 @@
 
 In the present work, we replicate the results of Young et al. 2001 ``Reproductive pair correlations and the clustering of organisms'' \cite{young_reproductive_2001}, an analysis of the formation of aggregates in an otherwise homogeneous environment mimicking marine small-scale hydrodynamics. Using an individual-based model of independent, random-walking particles (also called ``Brownian bugs''), they show that reproduction by fission in a turbulent \cite{tennekes1972first} and viscous flow leads to the formation of elongated clusters. Spatial patterns therefore depart from the usual, homogeneous solution of the advection-diffusion-reaction equation for a large population. \\
 
-Due to their size, phytoplankton organisms experience a mostly viscous environment in a laminar shear field, with random, but homogeneous changes in directions due to turbulence  \citep{dusenbery2009living, peters_effects_2000}. Reproduction and limited movement of daughter cells, which occur at the phytoplankton scale, interact with these hydrodynamics processes and can lead to aggregates.  In this context, a better understanding of the interactions between demography and small-scale hydrodynamics could provide further explanation for observed spatial distribution of phytoplankton species, and perhaps even their coexistence. This motivated us to revisit Young et al. 2001 \cite{young_reproductive_2001}. \\
+Due to their size, phytoplankton organisms experience a mostly viscous environment in a laminar shear field, with random but homogeneous changes in directions due to turbulence  \citep{dusenbery2009living, peters_effects_2000}. Reproduction and limited movement of daughter cells, which occur at the phytoplankton scale, interact with these hydrodynamics processes and can lead to aggregates.  In this context, a better understanding of the interactions between demography and small-scale hydrodynamics could provide further explanation for observed spatial distribution of phytoplankton species, and perhaps even their coexistence. This motivated us to revisit Young et al. 2001 \cite{young_reproductive_2001}. \\
 
 In addition to replicating the numerical and mathematical results of Young et al. 2001, we also wished to present the mathematical derivations that were missing from the original paper, which should make this replication article more accessible to most readers, especially those without a fluid mechanics background. 
 %(see \cite{tennekes1972first} if further clarification on hydrodynamics phenomena is required).} 
@@ -14,13 +14,7 @@ The Brownian bug model is defined as an individual-based model in continuous spa
       x_2 
 \end{pmatrix}$ and its original position on the y-axis at $t=0$ (a child particle inherits this attribute), this last characteristic being used only for representation purposes. Space is a $L\times L$ square with periodic boundary conditions. Each timestep, of duration $\tau$, is divided into three substeps: (1) demographic processes, (2) diffusion, and (3) advection. \\
 
-Demographic processes take place during the first substep (1). Each organism has a fixed probability ($p$) of reproducing, dying ($q$), or remaining unchanged ($1-p-q$). When an individual reproduces, a new organism appears on top of the parent. In the following, $p=q=0.5$.
-
-Diffusion is then modeled as a Brownian motion (2), i.e. $\boldsymbol{x'}(t)=\boldsymbol{x}(t)+\delta\boldsymbol{x}(t)$ where each component of $\delta\boldsymbol{x}(t)$ follows a Gaussian distribution $\mathcal{N}(0,\Delta)$ where $D=\frac{\Delta^2}{2\tau}$ is the diffusivity. 
-
-The discrete-time Markov chain presented here approximates the continuous-time the Brownian bug model, which can be thought of as a spatial birth-death or branching process (described in the Supplementary Material), step (1) being referred to in Young et al. \cite{young_reproductive_2001} as a Galton-Watson process.
-
-Finally, (3) the turbulent flow governing advective stirring follows the Pierrehumbert random map \citep{pierrehumbert_tracer_1994}.
+Demographic processes take place during the first substep (1). Each organism has a fixed probability ($p$) of reproducing, dying ($q$), or remaining unchanged ($1-p-q$). When an individual reproduces, a new organism appears on top of the parent. In the following, $p=q=0.5$. Diffusion is then modeled as a Brownian motion (2), i.e. $\boldsymbol{x'}(t)=\boldsymbol{x}(t)+\delta\boldsymbol{x}(t)$ where each component of $\delta\boldsymbol{x}(t)$ follows a Gaussian distribution $\mathcal{N}(0,\Delta)$ where $D=\frac{\Delta^2}{2\tau}$ is the diffusivity. The discrete-time Markov chain presented here approximates the continuous-time the Brownian bug model, which can be thought of as a spatial birth-death or branching process (described in the Supplementary Material), step (1) being referred to in Young et al. \cite{young_reproductive_2001} as a Galton-Watson process. Finally, (3) the turbulent flow governing advective stirring follows the Pierrehumbert random map \citep{pierrehumbert_tracer_1994}.
 
 \begin{eqnarray}
  x_1(t+\tau)&=&x'_1(t)+(U\tau/2)\cos[kx'_2(t)+\phi(t)] \label{eq:map1} \\
@@ -68,17 +62,15 @@ The value of $\gamma$ is computed from simulations (see Supplementary Material).
 \subsubsection*{Analytical solution with advection}
 
 CP and FB could only find the analytical solutions of $G(r,t)$ with and without advection with the indications of WY. In the presence of advection ($\gamma\neq0$), a steady-state solution
-can be found; without advection, there is no steady-state. 
+can be found; without advection, there is no steady-state and the solution changes through time. Let us first examine the steady-state solution, given by:
 
 \begin{align}
   &  \frac{2D}{r}\frac{\partial}{\partial r}\left(r\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r}\frac{\partial}{\partial r}\left(r^{3}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{x})\nonumber & = & & 0 \\
 \Leftrightarrow & 2\pi r\left(\frac{2D}{r}\frac{\partial}{\partial r}\left(r\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r}\frac{\partial}{\partial r}\left(r^{3}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{x})\right)\nonumber & = & & 0 \\
- \Leftrightarrow  & 2\pi\left(2D\frac{\partial}{\partial r}\left(r\frac{\partial G}{\partial r}\right)+\gamma\frac{\partial}{\partial r}\left(r^{3}\frac{\partial G}{\partial r}\right)\right)+2\pi r2\lambda C\delta(\boldsymbol{x}) & = & & 0\label{eq:steady_state}
+ \Leftrightarrow  & 2\pi\left(2D\frac{\partial}{\partial r}\left(r\frac{\partial G}{\partial r}\right)+\gamma\frac{\partial}{\partial r}\left(r^{3}\frac{\partial G}{\partial r}\right)\right)+2\pi r2\lambda C\delta(\boldsymbol{x}) & = & & 0.\label{eq:steady_state}
 \end{align}
 
-We can then integrate Eq.~\ref{eq:steady_state} over a small
-area centered on a particle, with radius $\rho$. Let us first note
-that
+We can then integrate Eq.~\ref{eq:steady_state} over a small area centered on a particle, with radius $\rho$. Let us first note that
 
 \begin{align}
 & \int_{\mathbb{R}^{2}}\delta(\boldsymbol{x})d^{2}\boldsymbol{x} & & = & & 1\nonumber \\
@@ -86,14 +78,11 @@ that
 \Leftrightarrow & 2\pi\int_{0}^{\rho}\delta(\boldsymbol{x'})r'dr' & & = & & 1\label{eq:delta_integration}
 \end{align}
 
-where $\boldsymbol{x'}$ is the equivalent of $\boldsymbol{x}$ in polar coordinates. 
-
-Using Eq.~\ref{eq:steady_state} and \ref{eq:delta_integration},
-we can integrate between 0 and $\rho$, 
+where $\boldsymbol{x'}$ is the equivalent of $\boldsymbol{x}$ in polar coordinates. Using Eq.~\ref{eq:steady_state} and \ref{eq:delta_integration}, we can integrate between 0 and $\rho$, 
 
 \begin{align}
  & & 0 & & = & & 2\pi\left(2D\rho\frac{\partial G}{\partial r}+\gamma\rho^{3}\frac{\partial G}{\partial r}\right)+2\lambda C\nonumber \\
-\Leftrightarrow & & \frac{\partial G}{\partial r} & & = & & -\frac{1}{2\pi}\frac{2\lambda C}{2D\rho+\gamma\rho^{3}}\label{eq:deriv_G_r}
+\Leftrightarrow & & \frac{\partial G}{\partial r} & & = & & -\frac{1}{2\pi}\frac{2\lambda C}{2D\rho+\gamma\rho^{3}}.\label{eq:deriv_G_r}
 \end{align}
 
 Eq.~\ref{eq:deriv_G_r} can now be integrated between $\rho$ and $\infty$, knowing that $G(\infty)=C^{2}$:
@@ -118,11 +107,10 @@ g(r)=\frac{\lambda}{8\pi DC}\log\left(\frac{2D+\gamma r^{2}}{\gamma r^{2}}\right
 
 \subsubsection*{Analytical solution without advection}
 
-When $U=0$, $\gamma=0$ and there is no steady solution in 2D. We can get
-back to Eq.~\ref{eq:eq_2_Young_reduced}.
+When $U=0$, $\gamma=0$ and there is no steady solution in 2D. We can get back to Eq.~\ref{eq:eq_2_Young_reduced}:
 
 \begin{equation}
-\frac{\partial G}{\partial t}=\frac{2D}{r}\frac{\partial}{\partial r}\left(r\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{x})\label{eq:g_without_advection}
+\frac{\partial G}{\partial t}=\frac{2D}{r}\frac{\partial}{\partial r}\left(r\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{x}).\label{eq:g_without_advection}
 \end{equation}
 
 Assuming an isotropic environment (and switching to the Cartesian coordinate system), this means
@@ -189,9 +177,9 @@ G(r,t)=2\lambda C\frac{E_1\left(\frac{r^{2}}{8Dt}\right)}{8D\pi}+C^{2}
 
 We were able to reproduce the three figures of Young et al. \cite{young_reproductive_2001} highlighting the spatial distributions of Brownian bugs.\\
 
-In Fig. \ref{fig:spatial_fig1}, the model has been run without the advection component and we can see the clumping of organisms due to demographic processes. In Fig. \ref{fig:spatial_fig2} a), the model has been run without its demographic component, but with advection and diffusion, confirming that hydrodynamics alone cannot ensure cluster formation, while in Fig.  \ref{fig:spatial_fig2} b), advection, diffusion and demography are present, in which case organisms form elongated aggregates.\\
+In Fig. \ref{fig:spatial_fig1}, the model has been run without the advection component and we can see the clumping of organisms due to reproduction. In Fig. \ref{fig:spatial_fig2} a), the model has been run without its demographic component, but with advection and diffusion, confirming that hydrodynamics alone cannot ensure cluster formation, while in Fig.  \ref{fig:spatial_fig2} b), advection, diffusion and demography are present, in which case organisms form elongated aggregates.\\
   
-Fig. \ref{fig:pcf_Fig3} proved much more challenging. Retrieving the analytical solutions of Eq.~\ref{eq:eq_2_Young_reduced} was difficult as there was no other equation than Eq. \ref{eq:eq_2_Young_total} in the original paper. We also encountered issues when computing the pair correlation functions on simulations: for large values of $r/\Delta$, we observed zero values (absent pairs) of the pcf when U=0. This is a sampling effect as pcf values get very low for large distances without advection, even though we multiplied the study area by 10 to produce Fig.  \ref{fig:pcf_Fig3} and counter such effects. Despite the missing values, we can confirm that simulated and analytical pcf match (Fig. \ref{fig:pcf_Fig3}), with a slight underestimation by the simulations. The pcf also got closer to 1 than the analytical predictions for large values of $r$. %% F: predictions -> analytical predictions? 
+Fig. \ref{fig:pcf_Fig3} proved much more challenging. Retrieving the analytical solutions of Eq.~\ref{eq:eq_2_Young_reduced} was difficult as there was no other equation than Eq. \ref{eq:eq_2_Young_total} in the original paper. We also encountered issues when computing the pair correlation functions on simulations: for large values of $r/\Delta$, we observed zero values (absent pairs) of the pcf when $U=0$. This is a sampling effect as pcf values get very low for large distances without advection, even though we multiplied the study area by 10 to produce Fig.  \ref{fig:pcf_Fig3} and counter such effects. Despite the missing values, we can confirm that simulated and analytical pcf match (Fig. \ref{fig:pcf_Fig3}), with a slight underestimation by the simulations. The numerical pcf also got closer to 1 than the analytical predictions for large values of $r$.
 
 \begin{figure}[H]
 \begin{center} 
@@ -220,29 +208,27 @@ Fig. \ref{fig:pcf_Fig3} proved much more challenging. Retrieving the analytical 
  
 \section*{Discussion}
 
-We successfully replicated both the numerical results and analytical solutions of Young et al. \citep{young_reproductive_2001}. Even though stochasticity prevents us from replicating exactly the same spatial point patterns as those seen in Fig. \ref{fig:spatial_fig1} and Fig. \ref{fig:spatial_fig2}, we considered the patterns to be close enough to validate the replication. Fig. \ref{fig:pcf_Fig3} was also very close to the one shown in the original article, despite a slight underestimation of the pcf in simulated data.\\
+We successfully replicated both the numerical results and analytical solutions of Young et al. \citep{young_reproductive_2001}. Even though stochasticity prevents us from replicating exactly the same spatial point patterns as those seen in the original Fig. \ref{fig:spatial_fig1} and Fig. \ref{fig:spatial_fig2}, we considered the patterns to be close enough to validate the replication. Fig. \ref{fig:pcf_Fig3} was also very close to the one shown in the original article, despite a slight underestimation of the pcf in simulated data.\\
 
-The most challenging part of the replication was not actually to replicate the numerical results, but to find back the analytical expression of the pair density function $G(r,t)$ dynamics from first principles. How to derive such dynamics was indeed briefly explained in words in the original article, but the many intermediate steps involved (see Supplementary Material) make the additional mathematical derivations presented here worthwhile in our opinion. In addition to providing critical information to CP and FB regarding how to obtain the pair correlation dynamics, WY also communicated the required mathematical steps to find back the analytical solutions for $G(r,t)$ plotted in Fig. \ref{fig:pcf_Fig3}. We hope that the additional material on the derivation of $G(r,t)$ dynamics (as Supplementary Material) as well as the provided analytical solutions of such dynamics (now presented in the main text) will help readers through both the original and replication articles. \\
+The most challenging part of the replication was actually not to replicate the numerical results, but to find back the analytical expression of the pair density function $G(r,t)$ dynamics from first principles. How to derive such dynamics was indeed briefly explained in words in the original article, but the many intermediate steps involved (see Supplementary Material) make the additional mathematical derivations presented here worthwhile in our opinion. In addition to providing critical information to CP and FB regarding how to obtain the pair correlation dynamics, WY also communicated the required mathematical steps to find back the analytical solutions for $G(r,t)$ plotted in Fig. \ref{fig:pcf_Fig3}. We hope that the additional material on the derivation of $G(r,t)$ dynamics (as Supplementary Material) as well as the provided analytical solutions of such dynamics (now presented in the main text) will help readers through both the original and replication articles. \\
 
 The original article did not provide quantitative values exactly matching marine microbes ecology; we thus wondered about the time and spatial scales that could be used for a realistic phytoplankton model. The length of the square side, $L$, is defined roughly as the Kolmogorov scale \citep{tennekes1972first}, the scale at which viscosity starts dominating turbulence  (we use $L= 1$ cm as an upper bound). Here, we consider $k$ the smallest wavenumber corresponding to the largest length scale $L$, i.e. $k=2\pi/L$. The chosen length scale defines the Reynolds number which then allows to obtain $U$, the velocity difference between two points separated by a distance $L$.  
  
 \begin{eqnarray}
- Re & = &\frac{U}{k\nu}\\
+ \text{Re} & = &\frac{U}{k\nu}\\
 \Rightarrow 1 & = & \frac{UL}{2\pi\nu}\\
 \Leftrightarrow U & = &\frac{2\pi\nu}{L}
 \end{eqnarray}
 % 
-where $\nu=10^{-6} \text{ m}^{2}.\text{s}^{-1}$ is the kinematic viscosity for water. These numerical values lead to $U=6.3\times10^{-4} \text{ m.s}^{-1}$. Note that $U$ is the speed in the frame of reference of the small square area considered here, which might itself be embedded within structures (\textit{e.g.}, bigger eddies) moving at higher speeds in the ocean or any large waterbody.\\
+where $\nu=10^{-6} \text{ m}^{2}.\text{s}^{-1}$ is the kinematic viscosity for water. These numerical values lead to $U=6.3\times10^{-4} \text{ m.s}^{-1}$. Note that $U$ is the speed in the frame of reference of the small square area considered here, which might itself be embedded within larger spatial structures (\textit{e.g.}, large eddies) moving at higher speeds in the ocean or any large waterbody.\\
 
-To determine the diffusivity of small organisms, we can use the Stokes-Einstein equation \citep{einstein1905molekularkinetischen}:
+To determine the diffusivity of small organisms, we use the Stokes-Einstein equation \citep{einstein1905molekularkinetischen}:
 
 \begin{equation}
  D=\frac{RT}{N_{A}}\frac{1}{6\pi\eta a}
 \end{equation}
 
-where $R=8.314$ J.K$^{-1}$.mol$^{-1}$ is the molar gas constant, $T=293$ K is the temperature of the environment, $N_{A}=6.0225\times10^{23}$ is Avogadro's number, $\eta=10^{-3}\text{ m}^{-1}.\text{kg.s}^{-1}$ is the viscosity of water and $a$ is the radius of the organism considered.\\
-
-We now apply this formula to microphytoplankton organisms of diameter 50$\mu$m, keeping $\tau$ outside of the equation for now.
+where $R=8.314$ J.K$^{-1}$.mol$^{-1}$ is the molar gas constant, $T=293$ K is the temperature of the environment, $N_{A}=6.0225\times10^{23}$ is Avogadro's number, $\eta=10^{-3}\text{ m}^{-1}.\text{kg.s}^{-1}$ is the viscosity of water and $a$ is the radius of the organism considered. We apply this formula to microphytoplankton organisms of diameter 50$\mu$m, keeping $\tau$ outside of the equation for now:
 
 \begin{eqnarray}
 \Delta & = & \sqrt{2D\tau}\\
@@ -255,14 +241,12 @@ To compute $\tau$, we can consider a phytoplankton doubling rate of $1$ d$^{-1}$
 
 This leads to $U\tau/2\approx 5.4\times10^{3} \text{ cm.d}^{-1}$ and $\Delta \approx 5\times10^{-5}$ cm. These two values are much higher than those used in Fig. \ref{fig:pcf_Fig3} ($0.1<U\tau/2<2.5$ and $\Delta=10^{-7}$). A thorough discussion of the parameters is therefore necessary before extrapolating these results to real phytoplanktonic systems. \\
 
-As the Brownian bug model is currently fairly theoretical in its 2D formulation, a logical next step would be to consider similar dynamics in a 3D-model, which would render the comparison to real data easier. Using actual concentrations of phytoplanktonic organisms (e.g. diatoms), between 10$^3$ and 10$^6$ C/L, this would lead to 1 to 10$^3$ organisms if we kept $L$ = 1 cm. We might therefore need to increase the size of the considered square, or apply the model to small bacteria only. With a closer match between field and simulated concentrations, the model could better inform the likely fine-scale spatial structure of phytoplanktonic organisms. 
+As the Brownian bug model is currently fairly theoretical in its 2D formulation, a logical next step would be to consider similar dynamics in a 3D-model, which would render the comparison to real data easier. Using actual concentrations of phytoplanktonic organisms (e.g. diatoms), between 10$^3$ and 10$^6$ C/L, this would lead to 1 to 10$^3$ organisms if we kept $L$ = 1 cm. We might therefore need to increase the size of the considered square, or apply the model to small bacteria only. With a closer match between field and simulated concentrations, the model could provide us with a better picture of the likely fine-scale spatial structure of phytoplanktonic populations. 
 
 \section*{Acknowledgements}
-We are grateful to Francesco Turci for his comments and to Rajesh Singh for both his careful feedback and code suggestions. 
+We are grateful to Francesco Turci for comments and to Rajesh Singh for detailed feedback and code suggestions. 
 
 %Another to look at this velocity is to consider the Reynolds number ($Re \approx 1$ in this case); we have $Re  = V L_c / \nu$ where $V$ is the fluid characteristic speed, $L_c$ the spatial scale, and $\nu = 10^{-6} m^2/s$ for water. If $L_c = L = 1$ cm, we have $V = 10^{-4} m/s = 0.1 mm/s$. 
 
 %Stuff that we could discuss: scales? Pierrehumber formulation for turbulence?
 
-% \section*{Acknoweldgements}
-% We are very grateful to William Young for his help through the theoretical part of Young et al. 2001. 

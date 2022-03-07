@@ -4,7 +4,7 @@
 
 \subsubsection*{Diffusion and birth/death processes}
 
-In this section, we aim to find back Eq.~2 in \cite{young_reproductive_2001}, i.e. Eq.~\ref{eq:eq_2_Young_total} in our manuscript. We will first focus on the diffusion and birth/death processes, that is:
+In this section, we aim to find back from first principles Eq.~2 in Young et al. \cite{young_reproductive_2001}, i.e. Eq.~\ref{eq:eq_2_Young_total} in our manuscript. We will first focus on the diffusion and birth/death processes, corresponding to the evolution equation for the pair density:
 
 \begin{equation}
  \frac{\partial G}{\partial t}=2Dr^{1-d}\frac{\partial}{\partial r}\left(r^{d-1}\frac{\partial G}{\partial r}\right)+2(\lambda-\mu)G+2\lambda C\delta(\boldsymbol{x})\label{eq:eq_2_Young_diffusionbirth}
@@ -12,16 +12,10 @@ In this section, we aim to find back Eq.~2 in \cite{young_reproductive_2001}, i.
 
 \vspace{1.25em}
 
-We first define an ensemble of $k$ identical Brownian bugs in a d-dimension
-space. The
-bug number $p$ is located at $\boldsymbol{x}_{p}=[x_1,x_2,...x_{d}]$.
-At time $t$, the space is defined by (a) the number of Brownian
-bugs $k$ and (b) the vector of their locations $\boldsymbol{X}_{k}=[\boldsymbol{x}_{1},\boldsymbol{x}_{2},...\boldsymbol{x}_{k}]$.
-This is also called the Fock space \citep{birch_master_2006}. \\
+We first define an ensemble of $k$ identical Brownian bugs in a d-dimensional space. The bug number $p$ is located at $\boldsymbol{x}_{p}=[x_1,x_2,...x_{d}]$. At time $t$, the space is defined by (a) the number of Brownian
+bugs $k$ and (b) the vector of their locations $\boldsymbol{X}_{k}=[\boldsymbol{x}_{1},\boldsymbol{x}_{2},...\boldsymbol{x}_{k}]$. This is also called the Fock space \citep{birch_master_2006}.\\
 
-The probability distribution over
-the state space is given by the functions $\mathcal{P}_{k}(\boldsymbol{X}_{k},t)$
-such that:
+The probability distribution over the state space is given by the functions $\mathcal{P}_{k}(\boldsymbol{X}_{k},t)$ such that:
 
 \begin{equation}
 \mathcal{P}_{k}(\boldsymbol{X}_{k},t)d\boldsymbol{X}_{k}=\text{Pr}\{k\text{ bugs, with a bug in }d\boldsymbol{x}_{1},\text{a bug in }d\boldsymbol{x}_{2}\text{, etc.}\}
@@ -187,8 +181,8 @@ which leads to
 \begin{subequations} 
 \begin{flalign}
 \int \sum_{q=2}^{k}\delta({\boldsymbol{x}_1-\boldsymbol{x}_q})\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t) d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k} = & \delta(\boldsymbol{x}_{1}-\boldsymbol{x}_{2})\int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
-&+ \int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\boldsymbol{x}_{1},\ldots...\boldsymbol{x}_{k},t)d\boldsymbol{x}_{4}\ldots d\boldsymbol{x}_{k} + \ldots \\
-& +\int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots...\boldsymbol{x}_{1},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{1}\\
+&+ \int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{4}\ldots d\boldsymbol{x}_{k} + \ldots \\
+& +\int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{1},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{1}\\
 =&\delta(\boldsymbol{x}_{1}-\boldsymbol{x}_{2})\int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
  & +\int\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{X}_{k-3},t)d\boldsymbol{X}_{k-3}+\ldots\\
  & +\int\mathcal{P}_{k-1}(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{X}_{k-3},t)d\boldsymbol{X}_{k-3}\\
@@ -233,7 +227,7 @@ Combining all terms, we obtain the expected result:
 \frac{\partial c_{k}}{\partial t}(\boldsymbol{x},\boldsymbol{y},t) & =D\nabla_{2}^{2}c_{k}\label{ck_diffusion-2}\\
  & -k(\lambda+\mu)c_{k}\label{ck_same_state-2}\\
  & +(k+1)\mu c_{k+1}\label{ck_death-2}\\
- & +2\frac{\lambda}{k}\delta(\boldsymbol{x}-\boldsymbol{y})b_{k-1}(\boldsymbol{x})+\lambda\frac{(k-2)(k+1)}{k}c_{k-1}\label{ck_birth-2}
+ & +2\frac{\lambda}{k}\delta(\boldsymbol{x}-\boldsymbol{y})b_{k-1}(\boldsymbol{x})+\lambda\frac{(k-2)(k+1)}{k}c_{k-1}.\label{ck_birth-2}
 \end{align}
 \end{subequations}
 
@@ -242,7 +236,7 @@ Combining all terms, we obtain the expected result:
 In cartesian coordinates, the pair density admits the following evolution equation:
 
 \begin{equation} 
-\frac{\partial G}{\partial t}(\boldsymbol{x},\boldsymbol{y},t) =D\nabla_{2}^{2}G +2(\lambda-\mu)G + 2\lambda\delta(\boldsymbol{x}-\boldsymbol{y})\rho(\boldsymbol{x})
+\frac{\partial G}{\partial t}(\boldsymbol{x},\boldsymbol{y},t) =D\nabla_{2}^{2}G +2(\lambda-\mu)G + 2\lambda\delta(\boldsymbol{x}-\boldsymbol{y})\rho(\boldsymbol{x}).
 \end{equation}
 
 \vspace{2em}
@@ -321,7 +315,7 @@ Combining all terms, we have
 \begin{align}
 \frac{\partial G}{\partial t}(\boldsymbol{x},\boldsymbol{y},t) & =D\nabla_{2}^{2}G \label{nk_diffusion-1}\\
  & +2(\lambda-\mu)G_{k} \label{nk_same_state-1}\\
- & +2\lambda\delta(\boldsymbol{x}-\boldsymbol{y})\rho(\boldsymbol{x}) \label{nk_death-1}
+ & +2\lambda\delta(\boldsymbol{x}-\boldsymbol{y})\rho(\boldsymbol{x}). \label{nk_death-1}
 \end{align}
 \end{subequations}
 
@@ -333,10 +327,8 @@ Using the Kraichnan equations \cite{kraichnan_convection_1974}, we prove that, t
 \frac{\partial G}{\partial t}=\gamma r^{1-d}\frac{\partial}{\partial r}\left(r^{d+1}\frac{\partial G}{\partial r}\right). \label{eq:eq_2_Young_advection}
 \end{equation}
 
-Let $\boldsymbol{r}(t)$
-be the distance between two points as a function of time, which follows a geometric Brownian motion, and $\boldsymbol{q}(t)=\log(\boldsymbol{r}(t))/\log(\boldsymbol{r}(0))$.
-Kraichnan defines $Q(\boldsymbol{q})$ as the probability distribution
-of $\boldsymbol{q}$. We have $Q=r^{d}G$. From Kraichnan and Fokker-Planck equations, we know that:
+Let $\boldsymbol{r}(t)$ be the distance between two points as a function of time, which follows a geometric Brownian motion, and $\boldsymbol{q}(t)=\log(\boldsymbol{r}(t))/\log(\boldsymbol{r}(0))$.
+Kraichnan defines $Q(\boldsymbol{q})$ as the probability distribution of $\boldsymbol{q}$. We have $Q=r^{d}G$. From Kraichnan \cite{kraichnan_convection_1974} and Fokker-Planck equations, we know that:
 
 \begin{equation}
 \frac{\partial Q}{\partial t}=\gamma\frac{\partial^{2}Q}{\partial q^{2}}-\gamma d\frac{\partial Q}{\partial q}\label{eq:FokkerPlanck}
@@ -361,7 +353,7 @@ Therefore,
 \begin{align}
 \frac{\partial^{2}Q}{\partial q^{2}} & =\frac{\partial}{\partial q}\left(\frac{\partial(r^{d}G)}{\partial r}\frac{\partial r}{\partial q}\right)\label{computedGdQ1-1}\\
  & =r\frac{\partial}{\partial r}\left(dr^{d}G+r^{d+1}\frac{\partial G}{\partial r}\right)\label{computedGdQ2-1}\\
- & =r\frac{\partial}{\partial r}\left(r^{d+1}\frac{\partial G}{\partial r}\right)+rd\frac{\partial(r^{d}G)}{\partial r}
+ & =r\frac{\partial}{\partial r}\left(r^{d+1}\frac{\partial G}{\partial r}\right)+rd\frac{\partial(r^{d}G)}{\partial r}.
 \end{align}
 
 \end{subequations}
@@ -382,10 +374,8 @@ Writing Eq.~\ref{last_adv} with Eq.~\ref{eq:eq_2_Young_diffusionbirth}, we obtai
 
 \subsection*{Stretching parameter $\gamma$}
 
-$\gamma$ is computed with simulations, with the formula $r(t)\propto \exp(\gamma dt)\rightarrow\frac{1}{2}\ln(r(t))=\gamma t$
-if $d=2$ with $r$ being the separation between pairs of particles. $\gamma$ is estimated as the slope of $$\frac{1}{2}\left\langle \ln(r(t))\right\rangle =f(t)$$
-
-with $\left\langle \ln(r(t))\right\rangle $ being the average obtained from 800 pairs of particles. 
+$\gamma$ is computed with simulations, using the formula $r(t)\propto \exp(\gamma dt)\rightarrow\frac{1}{2}\ln(r(t))=\gamma t$
+if $d=2$, with $r$ the separation between pairs of particles. $\gamma$ is estimated as the slope of $$\frac{1}{2}\left\langle \ln(r(t))\right\rangle =f(t)$$ with $\left\langle \ln(r(t))\right\rangle $ the average obtained from 800 pairs of particles. 
 
 $$\forall t,\left\langle \ln(r(t))\right\rangle =\frac{1}{800}\sum_{p=1}^{800}\ln(r(\boldsymbol{x}_{1,p}(t)-\boldsymbol{x}_{2,p}(t)))$$ 
 
