@@ -1,7 +1,7 @@
 ## Description
 
 * `basic_particle` files define the class describing an individual organism. 
-* `main_Fig*.cpp` files reproduce the simulations described in the original paper (number of the figures remains the same in the original paper, the replication, and the name of the files). They differ from one another mainly by the number of particles, value of diffusion, or phenomena taken into account. 
+* `main_Fig*.cpp` files reproduce the simulations described in the original paper (the number of the figures remains the same in the original paper, the replication, and the name of the files). They differ from one another mainly by the number of particles, value of diffusion, or phenomena taken into account. 
 * `compute_gamma.cpp` is used to approximate the value of ![\gamma](https://latex.codecogs.com/svg.latex?\gamma) by computing the separation between particles as a function of time (details are given in the Methods of the original paper). 
 
 Executable files can be produced with the command `make -f makefile_Fig*` or `make -f makefile_gamma` for the latter file.
