@@ -14,7 +14,7 @@ The Brownian bug model is defined as an individual-based model in continuous spa
       x_2 
 \end{pmatrix}$ and its original position on the y-axis at $t=0$ (a child particle inherits this attribute), this last characteristic being used only for representation purposes. Space is a $L\times L$ square with periodic boundary conditions. Each timestep, of duration $\tau$, is divided into three substeps: (1) demographic processes, (2) diffusion, and (3) advection. \\
 
-Demographic processes take place during the first substep (1). Each organism has a fixed probability ($p$) of reproducing, dying ($q$), or remaining unchanged ($1-p-q$). When an individual reproduces, a new organism appears on top of the parent. In the following, $p=q=0.5$. Diffusion is then modeled as a Brownian motion (2), i.e. $\boldsymbol{x'}(t)=\boldsymbol{x}(t)+\delta\boldsymbol{x}(t)$ where each component of $\delta\boldsymbol{x}(t)$ follows a Gaussian distribution $\mathcal{N}(0,\Delta)$ where $D=\frac{\Delta^2}{2\tau}$ is the diffusivity. The discrete-time Markov chain presented here approximates the continuous-time the Brownian bug model, which can be thought of as a spatial birth-death or branching process (described in the Supplementary Material), step (1) being referred to in Young et al. \cite{young_reproductive_2001} as a Galton-Watson process. Finally, (3) the turbulent flow governing advective stirring follows the Pierrehumbert random map \citep{pierrehumbert_tracer_1994}.
+Demographic processes take place during the first substep (1). Each organism has a fixed probability ($p$) of reproducing, dying ($q$), or remaining unchanged ($1-p-q$). When an individual reproduces, a new organism appears on top of the parent. In the following, $p=q=0.5$. Diffusion is then modeled as a Brownian motion (2), i.e. $\boldsymbol{x'}(t)=\boldsymbol{x}(t)+\delta\boldsymbol{x}(t)$ where each component of $\delta\boldsymbol{x}(t)$ follows a Gaussian distribution $\mathcal{N}(0,\Delta)$ where $D~=~\frac{\Delta^2}{2\tau}$ is the diffusivity. The discrete-time Markov chain presented here approximates the continuous-time Brownian bug model, which can be thought of as a spatial birth-death or branching process (described in the Supplementary Material), step (1) being referred to in Young et al. \cite{young_reproductive_2001} as a Galton-Watson process. Finally, (3) the turbulent flow governing advective stirring follows the Pierrehumbert random map \citep{pierrehumbert_tracer_1994}.
 
 \begin{eqnarray}
  x_1(t+\tau)&=&x'_1(t)+(U\tau/2)\cos[kx'_2(t)+\phi(t)] \label{eq:map1} \\
@@ -129,7 +129,7 @@ We therefore have
 
 where $\mathcal{L}$ is the linear differential operator $\partial_{t}-2D\Delta$. \\
 
-We can use a Green's function H, defined with $\mathcal{L}H=\delta(\boldsymbol{x},t)=\delta(\boldsymbol{x})\delta(t)$. \\
+We can use a Green's function $H$, defined with $\mathcal{L}H=\delta(\boldsymbol{x},t)=\delta(\boldsymbol{x})\delta(t)$. \\
 
 By definition, we know that $G(y)=\int H(y,s)2\lambda C\delta(s)ds$
 (where $y=(\boldsymbol{x},t)$) is a solution to Eq.~\ref{eq:LG_lambda}.
@@ -163,14 +163,14 @@ G(r,t)=2\lambda C\left[\frac{E_1 \left(\frac{r^{2}}{8Dt'}\right)}{8D\pi}\right]_
 \end{equation}
 
 where $E_1(x)=\int_x^\infty \frac{e^{-t}}{t}dt$ is the exponential integral. Using $G(r,0)=C^{2}$ and
-$\lim_{x\rightarrow+\infty}E_1=0$ in Eq.~\ref{eq:G_r_t}, we finally obtain
+$\lim_{x\rightarrow+\infty}E_1~=~0$ in Eq.~\ref{eq:G_r_t}, we finally obtain
 
 \begin{equation}
-G(r,t)=2\lambda C\frac{E_1\left(\frac{r^{2}}{8Dt}\right)}{8D\pi}+C^{2}
+G(r,t)=\lambda C\frac{E_1\left(\frac{r^{2}}{8Dt}\right)}{4D\pi}+C^{2}
 \end{equation}
 
 \begin{equation}
-\Leftrightarrow g(r,t)=\frac{2\lambda}{C}\frac{E_1\left(\frac{r^{2}}{8Dt}\right)}{8D\pi}+1.
+\Leftrightarrow g(r,t)=\frac{\lambda}{C}\frac{E_1\left(\frac{r^{2}}{8Dt}\right)}{4D\pi}+1.
 \end{equation}
 
 \section*{Results}
@@ -201,7 +201,7 @@ Fig. \ref{fig:pcf_Fig3} proved much more challenging. Retrieving the analytical 
 \begin{figure}[H]
 \begin{center}
  \includegraphics[width=0.99\textwidth]{../code/figure/pcf_test_Utot_modif_dx_dp.pdf}
- \caption{Logarithmic (a) and linear (b) plots of $g(r,t)$ versus $r/\Delta$, with $\Delta=10^{-7}$ and $U\tau/2=0,0.1,0.5,2.5$ at $t=1000\tau$. To compute simulated-based values of $g(r)$ with a large number of points ($N_0=200,000$) and avoid sampling issues, we replicated the $1\times 1$ square $10$ times, so that its length is $\sqrt{10}$ while keeping $L=1$ and $k=2\pi/L$ in eq. \ref{eq:map1} and \ref{eq:map2}. Solid lines result from simulations, dotted lines correspond to analytical solutions and the solid grey line indicates the $r^{-2}$ scaling predicted by Eq.~\ref{eq:eq_2_Young_total}.}
+ \caption{Logarithmic (a) and linear (b) plots of $g(r,t)$ versus $r/\Delta$, with $\Delta=10^{-7}$ and $U\tau/2=0,0.1,0.5,2.5$ at $t=1000\tau$. To compute simulation-based values of $g(r)$ with a large number of points ($N_0=200,000$) and avoid sampling issues, we replicated the $1\times 1$ square $10$ times, so that its length is $\sqrt{10}$ while keeping $L=1$ and $k=2\pi/L$ in eq. \ref{eq:map1} and \ref{eq:map2}. Solid lines result from simulations, dotted lines correspond to analytical solutions and the solid grey line indicates the $r^{-2}$ scaling predicted by Eq.~\ref{eq:eq_2_Young_total}.}
   \label{fig:pcf_Fig3}
 \end{center}
   \end{figure} 
@@ -228,13 +228,13 @@ To determine the diffusivity of small organisms, we use the Stokes-Einstein equa
  D=\frac{RT}{N_{A}}\frac{1}{6\pi\eta a}
 \end{equation}
 
-where $R=8.314$ J.K$^{-1}$.mol$^{-1}$ is the molar gas constant, $T=293$ K is the temperature of the environment, $N_{A}=6.0225\times10^{23}$ is Avogadro's number, $\eta=10^{-3}\text{ m}^{-1}.\text{kg.s}^{-1}$ is the viscosity of water and $a$ is the radius of the organism considered. We apply this formula to microphytoplankton organisms of diameter 50$\mu$m, keeping $\tau$ outside of the equation for now:
+where $R=8.314$ J.K$^{-1}$.mol$^{-1}$ is the molar gas constant, $T=293$ K is the temperature of the environment, $N_{A}=6.0225\times10^{23}$ is Avogadro's number, $\eta=10^{-3}\text{ m}^{-1}.\text{kg.s}^{-1}$ is the viscosity of water and $a$ is the radius of the organism considered. We apply this formula to microphytoplankton organisms of diameter 50 \textmu m, keeping $\tau$ outside of the equation for now:
 
 \begin{eqnarray}
 \Delta & = & \sqrt{2D\tau}\\
   &= & \sqrt{\frac{RT}{N_{A}}\frac{\tau}{3\pi\eta a}}\\
 &=& \sqrt{\frac{8.314\times293}{6.0225\times10^{23}}\frac{1}{3\pi\times10^{-3}\times25\times10^{-6}}}\sqrt{\tau}\\
- & = & 1.3 \times 10^{-7} \sqrt{\tau} \text{ m}
+ & = & 1.3 \times 10^{-7} \sqrt{\tau} \text{ m.}
 \end{eqnarray}
 
 To compute $\tau$, we can consider a phytoplankton doubling rate of $1$ d$^{-1}$ \citep{bissinger_predicting_2008}, which means, with $p=0.5$, that $\tau=0.5$ d.\\

@@ -89,7 +89,7 @@ where $\nabla_{k}^{2}=\frac{\partial^{2}}{\partial_{x_{1}}^{2}}+\frac{\partial^{
 without $\boldsymbol{x}_{p}$. \\
 
 Here, Eq.~\ref{pk_diffusion} is the diffusion part of the process, 
-Eq.~\ref{pk_same_state} corresponds to the rate at which realizations with $k$ bugs lose a bug by mortality or gain a bug through birth,  Eq.~\ref{pk_death} corresponds to the rate at which realization with $k+1$ bugs lose a bug. Finally, a realization with $k$ bugs can also be produced by a birth in a realization with $k-1$ bugs. \\
+Eq.~\ref{pk_same_state} corresponds to the rate at which realizations with $k$ bugs lose a bug by mortality or gain a bug through birth,  Eq.~\ref{pk_death} corresponds to the rate at which realizations with $k+1$ bugs lose a bug. Finally, a realization with $k$ bugs can also be produced by a birth in a realization with $k-1$ bugs. \\
 
 Combining the time derivative of $\mathcal{P}_{k}(\boldsymbol{X}_{k},t)$ with
 the definition of $c_{k}$, we obtain:
@@ -172,7 +172,7 @@ We integrate over the last $k-2$ coordinates.
  & \int\sum_{q=2}^{k}\delta({\boldsymbol{x}_1-\boldsymbol{x}_q})\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
 = & \int\delta(\boldsymbol{x}_{1}-\boldsymbol{x}_{2})\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
  & +\int\delta(\boldsymbol{x}_{1}-\boldsymbol{x}_{3})\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}+\ldots\\
- & +\int\delta(\boldsymbol{x}_{1}-\boldsymbol{x}_{k})\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
+ & +\int\delta(\boldsymbol{x}_{1}-\boldsymbol{x}_{k})\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}
 \end{flalign}
 \end{subequations}
 
@@ -180,7 +180,8 @@ which leads to
 
 \begin{subequations} 
 \begin{flalign}
-\int \sum_{q=2}^{k}\delta({\boldsymbol{x}_1-\boldsymbol{x}_q})\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t) d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k} = & \delta(\boldsymbol{x}_{1}-\boldsymbol{x}_{2})\int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
+& \int \sum_{q=2}^{k}\delta({\boldsymbol{x}_1-\boldsymbol{x}_q})\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t) d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
+& =  \delta(\boldsymbol{x}_{1}-\boldsymbol{x}_{2})\int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
 &+ \int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{4}\ldots d\boldsymbol{x}_{k} + \ldots \\
 & +\int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{1},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{1}\\
 =&\delta(\boldsymbol{x}_{1}-\boldsymbol{x}_{2})\int\mathcal{P}_{k-1}(\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{k},t)d\boldsymbol{x}_{3}\ldots d\boldsymbol{x}_{k}\\
