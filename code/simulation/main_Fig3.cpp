@@ -147,15 +147,16 @@ void branching_process(std::vector<basic_particle> &part_1,double proba_repro, d
 	}
 }
  
-int main()
+int main(int argc, char** argv)
 {
 	int i,j,t,tmp_t,nb_div;
 	double a_x,a_y,phi,theta,a_n,xi,dxi,pow_min,pow_max,dpow,pow_i,C;
 	std::vector<basic_particle> Part_table,Part_table_tmp;
-	//std::vector<double> Utot_list{ 0.0, 0.1, 0.5,2.5 }; //The structure of the code enables lauching one simulation for all Utot. For speed purposes, though, it is preferable to launch one simulation per Utot
-	std::vector<double> Utot_list{2.5};
+	double Utot;
+	Utot=std::stod(argv[1]);
 	std::ofstream f0,f1;
 	double pcf_table[2];
+	std::string simu;
 
 	pow_min=-1+log10(Delta);pow_max=5.5+log10(Delta); //These are the limits in Fig. 3 of Young et al. 2001
 	dpow=0.25;
@@ -164,16 +165,24 @@ int main()
 		repart[i]=0;
 	}
 
+        if(Utot==0.1){
+                simu="U0p1";
+        }else if(Utot==0.5){
+                simu="U0p5";
+        }else if(Utot==2.5){
+                simu="U2p5";
+        }else if(Utot==0.0){
+                simu="U0p0";
+        }else{
+                cout<<"U should be 0, 0.1, 0.5 or 2.5";
+        }
+
 	//Open the file in which we will have the x, y, parent of each particle
-//	f0.open("nb_individuals_dpow0p25_area10_tmax1000_N200000_U2p5.txt"); //Original one
-	f0.open("nb_individuals_dpow0p25_area10_tmax1000_N200000_U2p5_tocompare.txt"); //Test one
+	f0.open("nb_individuals_dpow0p25_area10_tmax1000_N200000_"+simu+"_tcb.txt"); 
 	f0<<"Utot;Nb_ind;area"<<std::endl;
-//	f1.open("pcf_dpow0p25_area10_tmax1000_N200000_U2p5.txt"); //Original one
-	f1.open("pcf_dpow0p25_area10_tmax1000_N200000_U2p5_tocompare.txt"); //Test one
+	f1.open("pcf_dpow0p25_area10_tmax1000_N200000_"+simu+"_tcb.txt");
 	f1<<"r;Utot;pcf_dx;pcf_dp"<<std::endl;
 
-	for (double Utot : Utot_list) 
-	{
 	//Initialize
 	for(i=0; i < size_pop; i++)
 	{
@@ -227,12 +236,8 @@ int main()
 	
 	 Part_table= std::vector<basic_particle>(); //Deallocate, reinitialize
 
-	} //End loop on Utot
-
 	
 	f1.close();
 	f0.close();
 	return 0;
 }
-
-int main();

@@ -184,8 +184,6 @@ int main(int argc, char** argv)
 	f1.open("pcf_dpow0p25_area1_tmax100_N1000_"+simu+".txt"); //Test one
 	f1<<"r;Utot;pcf_dx;pcf_dp"<<std::endl;
 
-//	for (double Utot : Utot_list) 
-//	{
 	//Initialize
 	for(i=0; i < size_pop; i++)
 	{
@@ -232,15 +230,7 @@ int main(int argc, char** argv)
 
 	 Part_table= std::vector<basic_particle>(); //Deallocate, reinitialize
 
-//	} //End loop on Utot
-
-	
 	f1.close();
 	f0.close();
 	return 0;
 }
-
-//int a_argc;
-//char** a_argv;
-
-//int main();
