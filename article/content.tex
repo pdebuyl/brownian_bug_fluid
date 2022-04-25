@@ -37,9 +37,9 @@ Unless otherwise specified, each simulation is initialized with $N_0=20,000$ par
 % where $C$ is the concentration of particles, $\lambda$ is the growth rate ($\lambda=p/\tau$)  and $\mu$ is the death rate ($\mu=q/\tau$). When $\lambda=\mu$, the solution of eq. \ref{eq:ADR} is $C(\boldsymbol{x},t)=C_0$ where $C_0$ is the initial uniform concentration. To compare this theoretical distribution to the actual distribution, the Brownian bug model is run without the advection component ($U=0$). While the Brownian bug model is a discrete-time model, we consider $\tau \leftarrow 0.1$. \\
 % 
 % To assess the effect of the turbulent motion, the model is also run without its demographic component, but with advection and diffusion.
-\subsection*{Pair correlation function G(r,t)}
+\subsection*{Pair density function G(r,t)}
 
-The pair density function $G(\boldsymbol{x}_i,\boldsymbol{x}_j,t)$ is defined so that $G(\boldsymbol{x}_i,\boldsymbol{x}_j,t)dA_1dA_2$ is the probability of finding a pair of Brownian bugs with one member in the area $dA_1$ around $\boldsymbol{x}_1$ and the other in the area $dA_2$ around $\boldsymbol{x}_2$. $G(\boldsymbol{r},t)$ is actually called the pair correlation function in \cite{young_reproductive_2001}. The radial density function $g(r,t)$ is defined as $G(\boldsymbol{x}_i,\boldsymbol{x}_j,t)=C^2g(r,t)$ with $r=|\boldsymbol{x}_i-\boldsymbol{x}_j|$. As the pair correlation disappears when $r\rightarrow\infty$, $g\rightarrow 1$. \\
+The pair density function $G(\boldsymbol{x}_i,\boldsymbol{x}_j,t)$ is defined so that $G(\boldsymbol{x}_i,\boldsymbol{x}_j,t)dA_1dA_2$ is the probability of finding a pair of Brownian bugs with one member in the area $dA_1$ around $\boldsymbol{x}_i$ and the other in the area $dA_2$ around $\boldsymbol{x}_j$. $G(\boldsymbol{r},t)$ is actually called the pair correlation function in \cite{young_reproductive_2001}. The radial density function $g(r,t)$ is defined as $G(\boldsymbol{x}_i,\boldsymbol{x}_j,t)=C^2g(r,t)$ with $r=|\boldsymbol{x}_i-\boldsymbol{x}_j|$. As the pair correlation disappears when $r\rightarrow\infty$, $g\rightarrow 1$. \\
 
 \subsubsection*{Derivation of G(r,t)}
 

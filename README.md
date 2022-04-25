@@ -26,7 +26,7 @@ All codes were tested on Ubuntu 16.04.
 
 ### Contributing
 
-Everyone is welcome to fork and re-use our code for further development in their own repository and project, following the conditions of the license (GPLv3). For any modification of this repository and/or pull request, please open an issue first.
+Everyone is welcome to fork and re-use our code for further development in their own repository and project, following the conditions of the license (GPLv3). For any modification of this repository and/or push request, please open an issue first.
 
 For citation, use:
 XXX 
