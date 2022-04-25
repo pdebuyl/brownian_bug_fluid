@@ -29,7 +29,7 @@ extern const double proba_repro=0.5;
 using namespace std;
 
 //This function computes the values of the pair density, either deriving with regards to dx, the increment in radius, or with regards to dp, the increment of power to compute the radius, as we wanted to compare the results. PairDens values are put in the table pcf[], with the derivation wrt dx in [0] and wrt to dp in [1]
-double PairDens(double p, double dp, std::vector<basic_particle> Part_table,double pcf[])
+void PairDens(double p, double dp, std::vector<basic_particle> Part_table,double pcf[])
 {
 double d2,dt2,dtt2;
 int ki,kj;
