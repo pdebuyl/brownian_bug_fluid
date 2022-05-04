@@ -36,10 +36,12 @@ vendor_id    : GenuineIntel
 
 **Compilation information for C++ and R**
 
+Simulation were run with C++, with the following configuration:
+
 ```
 g++ (Ubuntu 5.4.0-6ubuntu1~16.04.12) 5.4.0 20160609
 ```
 
 with compilation flags -O3 -std=c++11 and library GSL v.2.6.
 
-We used R version v.3.6.3 with package expint v.0.1-7 for the figure. 
+We used R version v.3.6.3 with package expint v.0.1-7 for the figures. 
