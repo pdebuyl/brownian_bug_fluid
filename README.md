@@ -1,6 +1,8 @@
 # [Re] Reproductive pair correlations and the clustering of organisms
 ## Replication of Young et al. (2001)
 
+[![DOI](https://zenodo.org/badge/339762861.svg)](https://zenodo.org/badge/latestdoi/339762861)
+
 **Authors**: Coralie Picoche, William R. Young and Frédéric Barraquand
 
 This repository contains the scripts and mathematical analyses replicating the results of the following paper:
