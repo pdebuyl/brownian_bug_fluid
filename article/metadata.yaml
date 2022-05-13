@@ -13,25 +13,29 @@ authors:
   - name: Coralie Picoche
     orcid: 0000-0002-0867-2130
     email: coralie.picoche@u-bordeaux.fr
-    affiliations: 1,2,*
-    
+    affiliations: 1,*
+
+  - name: William R. Young
+    orcid: 0000-0002-1842-3197
+    email: wryoung@ucsd.edu
+    affiliations: 2
+
   - name: Frederic Barraquand
     orcid: 0000-0002-4759-0269
     email: frederic.barraquand@u-bordeaux.fr
-    affiliations: 1,2      # * is for contact author
+    affiliations: 1      # * is for contact author
 
 # List of affiliations with code (corresponding to author affiliations), name
 # and address. You can also use these affiliations to add text such as "Equal
 # contributions" as name (with no address).
 affiliations:
   - code:    1
-    name:    Institute of Mathematics of Bordeaux, CNRS & University of Bordeaux
+    name:    Institute of Mathematics of Bordeaux, CNRS \& University of Bordeaux
     address: Talence, France
-    
-  - code:    2
-    name:    Integrative and Theoretical Ecology, LabEx COTE, University of Bordeaux
-    address: Pessac, France
-    
+
+  - code: 2
+    name: Scripps Institution of Oceanography, University of California at San Diego
+    address: La Jolla, California, USA
 
 # List of keywords (adding the programming language might be a good idea)
 keywords: phytoplankton, individual-based model, clustering, advection-diffusion-reaction, C++
@@ -41,7 +45,7 @@ keywords: phytoplankton, individual-based model, clustering, advection-diffusion
 # Software Heritage.
 #   see https://guides.github.com/activities/citable-code/
 code:
-  - url: https://github.com/CoraliePicoche/brownian_bug_fluid/code
+  - url: https://github.com/CoraliePicoche/brownian_bug_fluid/tree/main/code
   - doi: 
   - swh: 
 
@@ -83,7 +87,7 @@ language: C++
 
 # For example, the URL of the GitHub issue where review actually occured
 review: 
-  - url: 
+  - url: https://github.com/ReScience/submissions/issues/58 
 
 contributors:
   - name: Pierre de Buyl
