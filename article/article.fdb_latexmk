@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber article"] 1651650283 "article.bcf" "article.bbl" "article" 1652445270
-  "article.bcf" 1652445270 101852 ad9687c7e424dfb29f336939ea96df48 "pdflatex"
+["biber article"] 1651650283 "article.bcf" "article.bbl" "article" 1652447803
+  "article.bcf" 1652447803 101852 ad9687c7e424dfb29f336939ea96df48 "pdflatex"
   "bibliography.bib" 1651649435 2950 5c65d0534f404bc29e12486d6cf79848 ""
   (generated)
-  "article.bbl"
   "article.blg"
-["pdflatex"] 1652445269 "article.tex" "article.pdf" "article" 1652445270
+  "article.bbl"
+["pdflatex"] 1652447801 "article.tex" "article.pdf" "article" 1652447803
   "../code/figure/gamma_for_different_Utot.pdf" 1642065871 7072 db2908a9748794e17cbd44f5837ee948 ""
   "../code/figure/pcf_test_Utot_modif_dx_dp.pdf" 1646763013 7730 d172aa2d81f75e8dfabe87967b8ae1ce ""
   "../code/figure/spatial_distribution_Fig1.png" 1646763013 301365 5346a4da8173017c3c017831dd93600e ""
@@ -233,20 +233,20 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1651650261 3555249 90c7b8f416b491f621e4bdb4fc6483d6 ""
-  "article.aux" 1652445270 10284 d613e9ae00563a4aa746e991f940310c "pdflatex"
+  "article.aux" 1652447803 10284 d613e9ae00563a4aa746e991f940310c "pdflatex"
   "article.bbl" 1651650284 12733 201a445251fae8a6fb651173483564ca "biber article"
-  "article.out" 1652445269 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "article.run.xml" 1652445270 2429 bb3cd8c5c8f3243a6e2037a1c8323856 "pdflatex"
+  "article.out" 1652447802 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "article.run.xml" 1652447803 2429 bb3cd8c5c8f3243a6e2037a1c8323856 "pdflatex"
   "article.tex" 1646763013 473 5518a6723398bbc0c791e976278be10f ""
   "content.tex" 1650871990 21453 0081cd26ca70435e5dd8f0147dbefa1b ""
   "header.tex" 1642065871 3534 6b05e0c01e3066a3f9f2fd9479cf3645 ""
-  "metadata.tex" 1652445269 2280 217ff921e695925f6bca8bf7b6e0bb8a ""
+  "metadata.tex" 1652447801 2324 6f7afeff278a9dd8fcd4298d10447b4f ""
   "rescience.cls" 1642065871 12764 29d93eea55b386a6bcc39c1378b403ad ""
   "supplementary.tex" 1646763013 20876 868a536021c7bb04790ecae46a475961 ""
   (generated)
-  "article.run.xml"
-  "article.aux"
-  "article.bcf"
-  "article.log"
   "article.pdf"
+  "article.aux"
+  "article.run.xml"
   "article.out"
+  "article.log"
+  "article.bcf"
