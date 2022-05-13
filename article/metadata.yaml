@@ -86,25 +86,25 @@ review:
   - url: 
 
 contributors:
-  - name:
-    orcid: 
+  - name: Pierre de Buyl
+    orcid: 0000-0002-6640-6463
     role: editor
-  - name:
-    orcid:
+  - name: Francesco Turci
+    orcid: 0000-0002-0687-0715
     role: reviewer
-  - name:
-    orcid:
+  - name: Rajesh Singh
+    orcid: 0000-0003-0266-9691
     role: reviewer
 
 # This information will be provided by the editor
 dates:
-  - received:  November 1, 2018
-  - accepted:
-  - published: 
+  - received: August 24, 2021
+  - accepted: May 3, 2022
+  - published: May 13, 2022
 
 # This information will be provided by the editor
 article:
-  - number: # Article number will be automatically assigned during publication
+  - number: 3 # Article number will be automatically assigned during publication
   - doi:    # DOI from Zenodo
   - url:    # Final PDF URL (Zenodo or rescience website?)
 
@@ -112,5 +112,5 @@ article:
 journal:
   - name:   "ReScience C"
   - issn:   2430-3658
-  - volume: 4
+  - volume: 8
   - issue:  1
